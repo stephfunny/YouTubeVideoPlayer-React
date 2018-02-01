@@ -6,18 +6,30 @@ class App extends React.Component {
     this.state = {
       videos: [],
       currentVideo: props.videos[0], 
-      search: null
+      search: null,
     };
   }
-  handleClick(e) {
-    //console.log('testing', e.target);
-    // console.log('test', e.target.getAttribute('data-reactid'));
-    console.log('testing', e.target);
 
+  // resetCurrentVideo(e, videoClicked) {
+  //   console.log('handle click in app');
 
+  // }
+
+  myFunc(video) {
+    //console.log(this.state.currentVideo);    
+    // debugger;
+    this.setState({
+      currentVideo: video
+    });
+    // debugger;
+    // console.log(video);
+    console.log(this.state.currentVideo);
+    this.render();
+    //debugger;    
   }
 
   render() {
+    //debugger;
     return (
       <div>
         <nav className="navbar">
@@ -27,10 +39,11 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={this.state.currentVideo}/>
+            <VideoPlayer video={this.state.currentVideo} />
           </div>
-          <div onClick={this.handleClick} className="col-md-5">
-            <VideoList videos={this.props.videos} onClick={this.handleClick.bind(this)}/>
+          <div onClick={this.resetCurrentVideo} className="col-md-5">
+            <VideoList videos={this.props.videos} state={this.state.currentVideo} 
+              callback={this.myFunc.bind(this)} />
           </div>
         </div>
       </div>
@@ -40,7 +53,14 @@ class App extends React.Component {
 
 }
 
+window.App = App;
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
-window.App = App;
+// console.log('test', e.target.getAttribute('data-reactid'));
+// console.log('testing', e.target);
+//this.props.currentVideo = videoClicked;
+
+// this.state.currentVideo = this.props.videos[4];
+// console.log(this.props.videos[4]);
+//onClick={this.resetCurrentVideo.bind(this)}
