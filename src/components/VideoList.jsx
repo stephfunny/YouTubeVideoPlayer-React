@@ -2,7 +2,7 @@ var VideoList = (props) => (
 // <script>console.log('this')</script>
   <div className="video-list">
     {props.videos.map(video => 
-      <VideoListEntry video={video} />
+      <VideoListEntry video={video} onClick={this} />
     )}
   </div>
 );

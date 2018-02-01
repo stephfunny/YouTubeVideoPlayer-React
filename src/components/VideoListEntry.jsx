@@ -1,18 +1,23 @@
-var VideoListEntry = (props) => (
-  <div className="video-list-entry media">
-    <div className="media-left media-middle">
-      <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
-    </div>
-    <div className="media-body">
-      <div className="video-list-entry-title" onClick={console.log('test')}>{props.video.snippet.title}</div>
-      <div className="video-list-entry-detail">{props.video.snippet.description}</div>
+var VideoListEntry = (props) => {
 
-    </div>
-  </div>);
+  return (
+    <div className="video-list-entry media">
+      <div className="media-left media-middle">
+        <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
+      </div>
+      <div className="media-body">
+        <div className="video-list-entry-title" onClick={console.log('test123')}>{props.video.snippet.title}</div>
+        <div className="video-list-entry-detail">{props.video.snippet.description}</div>
 
-// var playClickedVideo = function(e) {
-//   console.log('test');
-// };
+      </div>
+    </div>
+  );
+
+  var playClickedVideo = function(e) {
+    console.log('click event');
+  };
+};
+
 
 
 
